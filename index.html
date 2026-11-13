@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kiswa Beauty Parlor</title>
+<style>
+:root{--pink:#f5e1e6;--rose:#ae5c75;--gold:#b9955c;--ink:#3e3034;--cream:#fffaf8}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,sans-serif;line-height:1.7}
+header{background:#fff;position:sticky;top:0;z-index:3;border-bottom:1px solid #ead9dc}
+nav{max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font: bold 22px Georgia,serif;color:var(--rose);direction:ltr}.brand small{display:block;text-align:center;color:var(--gold);font:10px Arial;letter-spacing:3px}
+a{color:inherit;text-decoration:none}.btn,button{background:var(--rose);color:white;border:0;border-radius:24px;padding:10px 18px;cursor:pointer;font-weight:bold}
+.hero{padding:70px 22px;background:linear-gradient(90deg,#f8e7ebee,#f8e7ebaa),url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80') center/cover}
+.wrap{max-width:1100px;margin:auto}.hero h1{font:clamp(36px,6vw,60px) Georgia,serif;color:#633c4b;margin:10px 0}
+section{max-width:1100px;margin:auto;padding:48px 20px}.center{text-align:center}.gold{color:var(--gold);letter-spacing:2px;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:#fff;border:1px solid #efdddf;border-radius:16px;overflow:hidden}.card img{width:100%;height:190px;object-fit:cover}.pad{padding:16px}
+.price{color:var(--rose);font-weight:bold}.muted{color:#826f73;font-size:14px}
+.panel{background:white;border:1px solid #eadadd;border-radius:16px;padding:20px;margin:16px 0}
+input,textarea,select{display:block;width:100%;padding:11px;border:1px solid #e5d3d6;border-radius:9px;margin:6px 0 12px;font:inherit}
+label{font-size:14px}footer{background:#3e3034;color:#fff;text-align:center;padding:30px}
+.hidden{display:none!important}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{flex:1}
+.small{font-size:12px;color:#856f75}.danger{background:#7b3947}.outline{background:transparent;color:var(--rose);border:1px solid var(--rose)}
+#status{padding:10px;background:#f9edf0;border-radius:8px;margin:10px 0;white-space:pre-wrap}
+@media(max-width:600px){nav{flex-wrap:wrap}.hero{padding:48px 20px}}
+</style>
+</head>
+<body>
+<header><nav><a href="#" class="brand">KISWA BEAUTY PARLOR<small>BEAUTY • CARE • CONFIDENCE</small></a>
+<div class="row" style="flex:0"><a href="#shop">شاپ</a><a href="#services">سروسز</a><a href="#admin">مالک لاگ اِن</a></div></nav></header>
+<div class="hero"><div class="wrap"><div class="gold">A SPECIAL GIFT FROM SHAH</div><h1>Kiswa Beauty Parlor</h1><h3>Wishing You Success & Happiness</h3><p>بیوٹی سروسز اور منتخب پراڈکٹس — ایک ہی جگہ۔</p><a class="btn" href="#shop">پراڈکٹس دیکھیں</a></div></div>
+<section id="services"><div class="center"><div class="gold">OUR SERVICES</div><h2>پارلر سروسز</h2></div><div class="grid" id="servicesGrid"></div></section>
+<section id="shop"><div class="center"><div class="gold">BEAUTY SHOP</div><h2>آن لائن شاپ</h2></div><div class="grid" id="products"></div></section>
+<section id="order"><div class="panel"><h2>آرڈر کی درخواست</h2><p class="muted">پراڈکٹ منتخب کریں اور اپنی رابطہ تفصیل دیں۔ دکان کی مالک آرڈر سے رابطہ کرے گی۔</p>
+<form id="orderForm"><label>آپ کا نام</label><input id="buyerName" required><label>فون نمبر</label><input id="buyerPhone" required><label>پراڈکٹ</label><select id="orderProduct" required></select><label>پتہ / شہر</label><textarea id="buyerAddress" required></textarea><button>آرڈر بھیجیں</button></form><div id="orderStatus" class="small"></div></div></section>
+<section id="admin"><div class="center"><div class="gold">PRIVATE OWNER AREA</div><h2>مالک کا ایڈمن پینل</h2><p class="muted">صرف مجاز مالک اپنے ای میل اور پاس ورڈ سے لاگ اِن کر سکتی ہے۔</p></div>
+<div class="panel"><div id="authBox"><label>مالک کا ای میل</label><input id="email" type="email" autocomplete="username"><label>پاس ورڈ</label><input id="password" type="password" autocomplete="current-password"><button id="login">لاگ اِن</button><p class="small">مالک کا اکاؤنٹ ویب سائٹ کے منتظم کی جانب سے محفوظ طریقے سے بنایا جائے گا۔ اس صفحے پر کوئی ڈیفالٹ پاس ورڈ نہیں ہے۔</p></div>
+<div id="ownerPanel" class="hidden"><div class="row"><h3>پراڈکٹ مینجمنٹ</h3><button id="logout" class="outline">لاگ آؤٹ</button></div>
+<form id="productForm"><input id="pid" type="hidden"><label>پراڈکٹ کا نام</label><input id="pname" required><label>قیمت (PKR)</label><input id="pprice" type="number" min="1" required><label>تفصیل</label><textarea id="pdesc"></textarea><label>تصویر کا لنک (اختیاری)</label><input id="pimage" type="url" placeholder="https://..."><button>پراڈکٹ شامل کریں</button></form>
+<h3>موجودہ پراڈکٹس</h3><div id="manageProducts"></div><h3>موصولہ آرڈرز</h3><div id="manageOrders" class="small"></div></div><div id="adminStatus"></div></div></section>
+<footer><div class="brand" style="color:#f3d7df">KISWA BEAUTY PARLOR</div><p>A Special Gift From Shah</p><small>© Kiswa Beauty Parlor</small></footer>
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+// منتظم: Supabase project URL اور anon key یہاں شامل کریں۔ service_role key کبھی بھی یہاں نہ رکھیں۔
+const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
+const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const configured = !SUPABASE_URL.includes('YOUR_') && !SUPABASE_ANON_KEY.includes('YOUR_');
+const sb = configured ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+const $ = id => document.getElementById(id);
+const sampleProducts = [
+ {id:'sample1',name:'ہائیڈریٹنگ فیس کریم',price:1850,description:'روزمرہ اسکن کیئر کے لیے',image_url:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80'},
+ {id:'sample2',name:'فیس سیرم',price:2250,description:'آپ کی اسکن کیئر روٹین کے لیے',image_url:'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=80'},
+ {id:'sample3',name:'بیوٹی میک اپ کٹ',price:3500,description:'روزمرہ میک اپ کلیکشن',image_url:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80'}
+];
+const sampleServices=[['فیشل اور اسکن کیئر','جلد کی صفائی، فیشل اور گلو ٹریٹمنٹس۔'],['میک اپ','پارٹی، ایونٹ اور برائیڈل میک اپ۔'],['ہیئر اسٹائلنگ','ہیئر کٹ، اسٹائلنگ اور ہیئر کیئر۔']];
+let products=[];
+function renderServices(){ $('servicesGrid').innerHTML=sampleServices.map(s=>`<article class="card"><div class="pad"><h3>${s[0]}</h3><p class="muted">${s[1]}</p></div></article>`).join(''); }
+function renderProducts(){ $('products').innerHTML=products.map(p=>`<article class="card"><img src="${safe(p.image_url)||'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80'}" alt=""><div class="pad"><h3>${safe(p.name)}</h3><p class="muted">${safe(p.description||'')}</p><div class="price">Rs. ${Number(p.price).toLocaleString('en-PK')}</div><button type="button" data-order="${p.id}">آرڈر کریں</button></div></article>`).join('');
+$('orderProduct').innerHTML=products.map(p=>`<option value="${p.id}">${safe(p.name)} — Rs. ${Number(p.price).toLocaleString('en-PK')}</option>`).join('');
+document.querySelectorAll('[data-order]').forEach(b=>b.onclick=()=>{$('orderProduct').value=b.dataset.order;location.hash='#order';});}
+function safe(v=''){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+async function loadProducts(){if(!sb){products=sampleProducts;renderProducts();$('adminStatus').textContent='سیٹ اپ باقی ہے: محفوظ ایڈمن اور آرڈرز فعال کرنے کے لیے README اور schema.sql کے مراحل مکمل کریں۔';return;}
+const {data,error}=await sb.from('products').select('*').eq('active',true).order('created_at',{ascending:false});
+products=error?sampleProducts:(data||[]);renderProducts();}
+renderServices();await loadProducts();
+$('orderForm').onsubmit=async e=>{e.preventDefault();if(!sb){$('orderStatus').textContent='آرڈر فی الحال محفوظ طور پر جمع نہیں ہو سکتا؛ ویب سائٹ کا Supabase سیٹ اپ مکمل ہونا باقی ہے۔';return;}
+const p=products.find(x=>x.id===$('orderProduct').value);const {error}=await sb.from('orders').insert({customer_name:$('buyerName').value,phone:$('buyerPhone').value,address:$('buyerAddress').value,product_id:p.id,product_name:p.name,price_pkr:p.price,status:'new'});
+$('orderStatus').textContent=error?'آرڈر جمع نہیں ہوا۔ دوبارہ کوشش کریں۔':'آپ کی آرڈر درخواست موصول ہوگئی۔ شکریہ!';if(!error)e.target.reset();};
+$('login').onclick=async()=>{if(!sb){$('adminStatus').textContent='ایڈمن لاگ اِن فعال کرنے کے لیے پہلے Supabase کنفیگریشن درکار ہے۔ README دیکھیں۔';return;}
+const {error}=await sb.auth.signInWithPassword({email:$('email').value,password:$('password').value});$('adminStatus').textContent=error?'لاگ اِن ناکام۔ ای میل یا پاس ورڈ چیک کریں۔':'لاگ اِن کامیاب۔';if(!error)showOwner();};
+$('logout').onclick=async()=>{await sb.auth.signOut();$('ownerPanel').classList.add('hidden');$('authBox').classList.remove('hidden');};
+async function showOwner(){ $('authBox').classList.add('hidden');$('ownerPanel').classList.remove('hidden');await loadManage();}
+async function loadManage(){const {data:ps}=await sb.from('products').select('*').order('created_at',{ascending:false});$('manageProducts').innerHTML=(ps||[]).map(p=>`<div class="panel"><b>${safe(p.name)}</b> — Rs. ${p.price}<div class="row"><button class="outline" data-edit="${p.id}">ترمیم</button><button class="danger" data-del="${p.id}">حذف</button></div></div>`).join('')||'ابھی کوئی پراڈکٹ نہیں۔';
+document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>{const p=ps.find(x=>x.id===b.dataset.edit);$('pid').value=p.id;$('pname').value=p.name;$('pprice').value=p.price;$('pdesc').value=p.description||'';$('pimage').value=p.image_url||'';location.hash='#admin';});
+document.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{await sb.from('products').delete().eq('id',b.dataset.del);await loadProducts();await loadManage();});
+const {data:os}=await sb.from('orders').select('*').order('created_at',{ascending:false}).limit(100);$('manageOrders').innerHTML=(os||[]).map(o=>`<div class="panel">${safe(o.customer_name)} | ${safe(o.phone)} | ${safe(o.product_name)} | Rs. ${o.price_pkr} | ${safe(o.status)}</div>`).join('')||'ابھی کوئی آرڈر نہیں۔';}
+$('productForm').onsubmit=async e=>{e.preventDefault();if(!sb)return;const payload={name:$('pname').value,price:Number($('pprice').value),description:$('pdesc').value,image_url:$('pimage').value||null,active:true};
+const editing=$('pid').value;
+const result=editing?await sb.from('products').update(payload).eq('id',editing):await sb.from('products').insert(payload);
+const error=result.error;$('adminStatus').textContent=error?'پراڈکٹ محفوظ نہیں ہو سکی۔':'پراڈکٹ محفوظ ہوگئی۔';if(!error){e.target.reset();$('pid').value='';await loadProducts();await loadManage();}};
+if(sb){const {data}=await sb.auth.getSession();if(data.session)await showOwner();}
+</script>
+</body></html>
