@@ -20,16 +20,18 @@ section{max-width:1100px;margin:auto;padding:48px 20px}.center{text-align:center
 input,textarea,select{display:block;width:100%;padding:11px;border:1px solid #e5d3d6;border-radius:9px;margin:6px 0 12px;font:inherit}
 label{font-size:14px}footer{background:#3e3034;color:#fff;text-align:center;padding:30px}
 .hidden{display:none!important}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{flex:1}
-.small{font-size:12px;color:#856f75}.danger{background:#7b3947}.outline{background:transparent;color:var(--rose);border:1px solid var(--rose)}
+.small{font-size:12px;color:#856f75}.card ul{padding-right:20px;margin:8px 0}.card li{margin:4px 0}.card .price{font-size:13px}.card button{margin-top:8px}.danger{background:#7b3947}.outline{background:transparent;color:var(--rose);border:1px solid var(--rose)}
 #status{padding:10px;background:#f9edf0;border-radius:8px;margin:10px 0;white-space:pre-wrap}
 @media(max-width:600px){nav{flex-wrap:wrap}.hero{padding:48px 20px}}
 </style>
 </head>
 <body>
 <header><nav><a href="#" class="brand">KISWA BEAUTY PARLOR<small>BEAUTY • CARE • CONFIDENCE</small></a>
-<div class="row" style="flex:0"><a href="#shop">شاپ</a><a href="#services">سروسز</a><a href="#admin">مالک لاگ اِن</a></div></nav></header>
-<div class="hero"><div class="wrap"><div class="gold">A SPECIAL GIFT </div><h1>Kiswa Beauty Parlor</h1><h3>Wishing You Success & Happiness</h3><p>بیوٹی سروسز اور منتخب پراڈکٹس — ایک ہی جگہ۔</p><a class="btn" href="#shop">پراڈکٹس دیکھیں</a></div></div>
+<div class="row" style="flex:0"><a href="#shop">شاپ</a><a href="#services">سروسز</a><a href="#appointment">اپائنٹمنٹ</a><a href="#admin">مالک لاگ اِن</a></div></nav></header>
+<div class="hero"><div class="wrap"><div class="gold">A SPECIAL GIFT</div><h1>Kiswa Beauty Parlor</h1><h3>Wishing You Success & Happiness</h3><p>بیوٹی سروسز اور منتخب پراڈکٹس — ایک ہی جگہ۔</p><a class="btn" href="#shop">پراڈکٹس دیکھیں</a></div></div>
 <section id="services"><div class="center"><div class="gold">OUR SERVICES</div><h2>پارلر سروسز</h2></div><div class="grid" id="servicesGrid"></div></section>
+<section id="appointment"><div class="center"><div class="gold">BOOK AN APPOINTMENT</div><h2>اپائنٹمنٹ بک کریں</h2><p class="muted">اپنی پسند کی سروس، تاریخ اور وقت منتخب کریں۔ پارلر کی طرف سے تصدیق کے بعد اپائنٹمنٹ پکی ہوگی۔</p></div>
+<div class="panel"><form id="appointmentForm"><label>آپ کا نام</label><input id="apptName" required><label>موبائل نمبر</label><input id="apptPhone" type="tel" required><label>سروس منتخب کریں</label><select id="apptService" required></select><div class="row"><div><label>تاریخ</label><input id="apptDate" type="date" required></div><div><label>پسندیدہ وقت</label><input id="apptTime" type="time" required></div></div><label>اضافی تفصیل (اختیاری)</label><textarea id="apptNote" placeholder="مثلاً شادی کی تاریخ یا مطلوبہ میک اپ"></textarea><button>اپائنٹمنٹ کی درخواست بھیجیں</button></form><p id="apptStatus" class="small">نوٹ: اپائنٹمنٹ کی آن لائن محفوظ بکنگ اور واٹس ایپ اطلاع فعال کرنے کے لیے مالک کا رابطہ نمبر اور محفوظ ڈیٹابیس کنکشن درکار ہے۔</p></div></section>
 <section id="shop"><div class="center"><div class="gold">BEAUTY SHOP</div><h2>آن لائن شاپ</h2></div><div class="grid" id="products"></div></section>
 <section id="order"><div class="panel"><h2>آرڈر کی درخواست</h2><p class="muted">پراڈکٹ منتخب کریں اور اپنی رابطہ تفصیل دیں۔ دکان کی مالک آرڈر سے رابطہ کرے گی۔</p>
 <form id="orderForm"><label>آپ کا نام</label><input id="buyerName" required><label>فون نمبر</label><input id="buyerPhone" required><label>پراڈکٹ</label><select id="orderProduct" required></select><label>پتہ / شہر</label><textarea id="buyerAddress" required></textarea><button>آرڈر بھیجیں</button></form><div id="orderStatus" class="small"></div></div></section>
@@ -38,8 +40,8 @@ label{font-size:14px}footer{background:#3e3034;color:#fff;text-align:center;padd
 <div id="ownerPanel" class="hidden"><div class="row"><h3>پراڈکٹ مینجمنٹ</h3><button id="logout" class="outline">لاگ آؤٹ</button></div>
 <form id="productForm"><input id="pid" type="hidden"><label>پراڈکٹ کا نام</label><input id="pname" required><label>قیمت (PKR)</label><input id="pprice" type="number" min="1" required><label>تفصیل</label><textarea id="pdesc"></textarea><label>تصویر کا لنک (اختیاری)</label><input id="pimage" type="url" placeholder="https://..."><button>پراڈکٹ شامل کریں</button></form>
 <h3>موجودہ پراڈکٹس</h3><div id="manageProducts"></div><h3>موصولہ آرڈرز</h3><div id="manageOrders" class="small"></div></div><div id="adminStatus"></div></div></section>
-<footer><div class="brand" style="color:#f3d7df">KISWA BEAUTY PARLOR</div><p>A Special Gift  </p><small>© Kiswa Beauty Parlor</small><p>پتہ: اسلام پورہ، بھلوال</p></footer>
-<script type="module">۔                                                                                     
+<footer><div class="brand" style="color:#f3d7df">KISWA BEAUTY PARLOR</div><p>A Special Gift</p><small>© Kiswa Beauty Parlor</small></footer>
+<script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 // منتظم: Supabase project URL اور anon key یہاں شامل کریں۔ service_role key کبھی بھی یہاں نہ رکھیں۔
 const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
@@ -52,9 +54,18 @@ const sampleProducts = [
  {id:'sample2',name:'فیس سیرم',price:2250,description:'آپ کی اسکن کیئر روٹین کے لیے',image_url:'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=80'},
  {id:'sample3',name:'بیوٹی میک اپ کٹ',price:3500,description:'روزمرہ میک اپ کلیکشن',image_url:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80'}
 ];
-const sampleServices=[['فیشل اور اسکن کیئر','جلد کی صفائی، فیشل اور گلو ٹریٹمنٹس۔'],['میک اپ','پارٹی، ایونٹ اور برائیڈل میک اپ۔'],['ہیئر اسٹائلنگ','ہیئر کٹ، اسٹائلنگ اور ہیئر کیئر۔']];
+const serviceGroups = [
+ {title:'میک اپ سروسز',items:['پارٹی میک اپ','شادی میک اپ','بارات میک اپ','دلہن میک اپ','مہندی میک اپ','ولیمہ میک اپ','منگنی میک اپ','ریسیپشن میک اپ','نیچرل / لائٹ میک اپ','بچیوں کے لیے اسپیشل میک اپ']},
+ {title:'فیشل اور اسکن کیئر',items:['نارمل فیشل','گولڈ فیشل','ڈائمنڈ فیشل','برائیڈل فیشل','وٹامن سی فیشل','ایکنی کیئر فیشل','کلین اَپ','بلیک ہیڈز / وائٹ ہیڈز کلیننگ','بلیچ','فیس ماسک اور جلد کی صفائی']},
+ {title:'ہیئر سروسز',items:['ہیئر کٹنگ','ہیئر اسٹائلنگ','ہیئر کلر / ڈائی','ہائی لائٹس','ہیئر اسٹریٹننگ','ہیئر کرلنگ','ہیئر اسپا','ہیئر ٹریٹمنٹ','مہندی لگانا']},
+ {title:'ہاتھ، پاؤں اور گرومنگ',items:['مینی کیور','پیڈی کیور','نیل پالش','نیل آرٹ','ویکسنگ','تھریڈنگ','آئی برو شیپنگ','اپر لپ','بازو اور ٹانگوں کی ویکسنگ','باڈی پالش']},
+ {title:'برائیڈل پیکجز',items:['مکمل برائیڈل پیکج','دلہن کا فیشل','دلہن کے بالوں کا اسٹائل','دلہن کا میک اپ','ہاتھوں اور پاؤں کی تیاری']}
+];
+const allServices = serviceGroups.flatMap(g=>g.items);
 let products=[];
-function renderServices(){ $('servicesGrid').innerHTML=sampleServices.map(s=>`<article class="card"><div class="pad"><h3>${s[0]}</h3><p class="muted">${s[1]}</p></div></article>`).join(''); }
+function renderServices(){ $('servicesGrid').innerHTML=serviceGroups.map(g=>`<article class="card"><div class="pad"><h3>${safe(g.title)}</h3><ul>${g.items.map(name=>`<li>${safe(name)}</li>`).join('')}</ul><p class="price">ریٹ پارلر کی مالک مقرر کرے گی</p><button type="button" class="outline" data-service="${safe(g.items[0])}">اپائنٹمنٹ لیں</button></div></article>`).join('');
+$('apptService').innerHTML='<option value="">سروس منتخب کریں</option>'+allServices.map(x=>`<option>${safe(x)}</option>`).join('');
+document.querySelectorAll('[data-service]').forEach(b=>b.onclick=()=>{$('apptService').value=b.dataset.service;location.hash='#appointment';}); }
 function renderProducts(){ $('products').innerHTML=products.map(p=>`<article class="card"><img src="${safe(p.image_url)||'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80'}" alt=""><div class="pad"><h3>${safe(p.name)}</h3><p class="muted">${safe(p.description||'')}</p><div class="price">Rs. ${Number(p.price).toLocaleString('en-PK')}</div><button type="button" data-order="${p.id}">آرڈر کریں</button></div></article>`).join('');
 $('orderProduct').innerHTML=products.map(p=>`<option value="${p.id}">${safe(p.name)} — Rs. ${Number(p.price).toLocaleString('en-PK')}</option>`).join('');
 document.querySelectorAll('[data-order]').forEach(b=>b.onclick=()=>{$('orderProduct').value=b.dataset.order;location.hash='#order';});}
@@ -66,6 +77,7 @@ renderServices();await loadProducts();
 $('orderForm').onsubmit=async e=>{e.preventDefault();if(!sb){$('orderStatus').textContent='آرڈر فی الحال محفوظ طور پر جمع نہیں ہو سکتا؛ ویب سائٹ کا Supabase سیٹ اپ مکمل ہونا باقی ہے۔';return;}
 const p=products.find(x=>x.id===$('orderProduct').value);const {error}=await sb.from('orders').insert({customer_name:$('buyerName').value,phone:$('buyerPhone').value,address:$('buyerAddress').value,product_id:p.id,product_name:p.name,price_pkr:p.price,status:'new'});
 $('orderStatus').textContent=error?'آرڈر جمع نہیں ہوا۔ دوبارہ کوشش کریں۔':'آپ کی آرڈر درخواست موصول ہوگئی۔ شکریہ!';if(!error)e.target.reset();};
+$('appointmentForm').onsubmit=e=>{e.preventDefault();$('apptStatus').textContent='آپ کی تفصیل فارم میں درج ہوگئی ہے، لیکن آن لائن بکنگ ابھی فعال نہیں۔ مالک کا واٹس ایپ نمبر اور ڈیٹابیس کنکشن شامل ہونے کے بعد درخواست محفوظ اور ارسال ہوگی۔';};
 $('login').onclick=async()=>{if(!sb){$('adminStatus').textContent='ایڈمن لاگ اِن فعال کرنے کے لیے پہلے Supabase کنفیگریشن درکار ہے۔ README دیکھیں۔';return;}
 const {error}=await sb.auth.signInWithPassword({email:$('email').value,password:$('password').value});$('adminStatus').textContent=error?'لاگ اِن ناکام۔ ای میل یا پاس ورڈ چیک کریں۔':'لاگ اِن کامیاب۔';if(!error)showOwner();};
 $('logout').onclick=async()=>{await sb.auth.signOut();$('ownerPanel').classList.add('hidden');$('authBox').classList.remove('hidden');};
