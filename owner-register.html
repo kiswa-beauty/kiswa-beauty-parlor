@@ -30,7 +30,7 @@ document.getElementById("f").addEventListener("submit",async e=>{
  e.preventDefault();const b=document.getElementById("submit"),m=document.getElementById("msg");
  b.disabled=true;b.textContent="Please wait…";m.textContent="";
  try{
-  const r=await fetch(SUPABASE_URL+"/functions/v1/owner-register",{method:"POST",
+  const r=await fetch(SUPABASE_URL+"/functions/v1/owner-register-v2",{method:"POST",
    headers:{"Content-Type":"application/json","apikey":SUPABASE_ANON_KEY},
    body:JSON.stringify({email:document.getElementById("email").value,
     password:document.getElementById("password").value,
