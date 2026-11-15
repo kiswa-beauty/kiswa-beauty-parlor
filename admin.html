@@ -1,83 +1,18 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#78304f"><title>Kiswa Beauty Parlor — Owner Panel</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>
-:root{--wine:#78304f;--pink:#f8e9ee;--gold:#c49a53;--ink:#33242b;--muted:#796b71;--line:#ead9df}
-*{box-sizing:border-box}body{margin:0;background:#fff8fa;color:var(--ink);font:15px system-ui,Arial}
-header{background:var(--wine);color:white;padding:22px 16px;text-align:center}
-header h1{margin:0;font:600 27px Georgia}header p{margin:7px 0 0;color:#f3dfe7}
-main{max-width:900px;margin:28px auto;padding:0 14px}.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 12px 35px #5d263018;margin-bottom:18px}
-h2{font:600 24px Georgia;color:var(--wine);margin:0 0 12px}
-label{display:block;font-weight:650;font-size:13px;margin:12px 0 6px}
-input,select{width:100%;padding:13px;border:1px solid var(--line);border-radius:10px;font:inherit;background:white}
-button{border:0;border-radius:24px;padding:12px 19px;background:var(--wine);color:white;font-weight:700;cursor:pointer;margin-top:14px}
-button.secondary{background:#f4e5eb;color:var(--wine)}button:disabled{opacity:.55}
-.note{font-size:13px;color:var(--muted);line-height:1.6}.msg{padding:12px;border-radius:10px;background:var(--pink);margin-top:12px;line-height:1.5}
-.hidden{display:none!important}.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.item{border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:12px}
-.item strong{color:var(--wine)}.meta{font-size:13px;color:var(--muted);line-height:1.7;margin:6px 0}
-.pill{display:inline-block;background:#f8e9ee;color:var(--wine);border-radius:20px;padding:4px 9px;font-size:12px}
-.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.row select{max-width:190px}
-footer{text-align:center;color:var(--muted);font-size:12px;padding:22px}
-</style></head>
-<body>
-<header><h1>Kiswa Beauty Parlor</h1><p>Owner Admin Panel · مالک کا انتظامی پینل</p></header>
-<main>
-<section class="panel" id="loginPanel">
-<h2>Owner Login · مالک لاگ اِن</h2>
-<p class="note">مالک اپنا وہی Gmail اور پاس ورڈ استعمال کرے جو محفوظ طریقے سے Supabase میں بنایا گیا ہو۔ یہ صفحہ عوامی رجسٹریشن نہیں کھولتا۔</p>
-<label for="email">Gmail / Email</label><input id="email" type="email" autocomplete="username" placeholder="owner@example.com">
-<label for="password">Password</label><input id="password" type="password" autocomplete="current-password" placeholder="Password">
-<button id="loginBtn">Login / لاگ اِن</button>
-<div id="loginMsg" class="msg hidden" role="status"></div>
-</section>
-<section class="panel hidden" id="dashboard">
-<div class="bar"><div><h2>Appointments · اپائنٹمنٹس</h2><p class="note">درخواستیں دیکھیں اور ان کی حالت تبدیل کریں۔</p></div><div class="row"><button class="secondary" id="refreshBtn">Refresh</button><button id="logoutBtn">Logout</button></div></div>
-<div id="dashMsg" class="msg hidden" role="status"></div>
-<div id="appointments"></div>
-</section>
-</main><footer>Private owner area · Kiswa Beauty Parlor</footer>
+<html lang="ur" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kiswa Beauty Parlor — Owner Panel</title><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>
+:root{--w:#78304f;--p:#f8e9ee;--g:#c49a53;--ink:#33242b;--line:#ead9df}*{box-sizing:border-box}body{margin:0;background:#fff8fa;color:var(--ink);font:15px system-ui,Arial}header{background:var(--w);color:white;padding:20px;text-align:center}main{max-width:950px;margin:20px auto;padding:0 12px}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}h2,h3{color:var(--w);margin:0 0 12px}label{display:block;font-weight:650;margin:10px 0 5px}input,textarea,select{width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;font:inherit}textarea{min-height:65px}button{border:0;border-radius:22px;padding:11px 16px;background:var(--w);color:white;font-weight:700;margin:8px 4px 0 0}button.alt{background:var(--p);color:var(--w)}button.del{background:#9e3447}.hidden{display:none!important}.msg{background:var(--p);padding:10px;border-radius:9px;margin:10px 0}.note,.meta{font-size:13px;color:#796b71;line-height:1.6}.tabs,.bar,.actions{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.item{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px}.item img{width:100%;height:145px;object-fit:cover;border-radius:8px}.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px}.check{display:flex;align-items:center;gap:8px}.check input{width:auto}
+</style></head><body><header><h1>Kiswa Beauty Parlor</h1>مالک کا انتظامی پینل · Owner Admin Panel</header><main>
+<section class="panel" id="login"><h2>مالک لاگ اِن</h2><p class="note">صرف مجاز مالک اپنا Gmail اور پاس ورڈ استعمال کرے۔</p><label>Gmail / Email</label><input id="email" type="email" autocomplete="username"><label>پاس ورڈ</label><input id="password" type="password" autocomplete="current-password"><button id="loginBtn">لاگ اِن</button><div id="loginMsg" class="msg hidden"></div></section>
+<section class="panel hidden" id="dash"><div class="bar"><h2>مالک کا ڈیش بورڈ</h2><div><button class="alt" id="refresh">تازہ کریں</button><button id="logout">لاگ آؤٹ</button></div></div><div id="msg" class="msg hidden"></div><div class="tabs"><button data-tab="appointments">اپائنٹمنٹس</button><button class="alt" data-tab="products">پروڈکٹس</button><button class="alt" data-tab="services">سروسز</button></div>
+<section id="appointments"><h3>اپائنٹمنٹس</h3><div id="appointmentsList"></div></section>
+<section id="products" class="hidden"><h3>پروڈکٹ شامل / تبدیل کریں</h3><form id="productForm"><input id="pid" type="hidden"><div class="formgrid"><div><label>نام</label><input id="pname" required></div><div><label>قیمت (PKR)</label><input id="pprice" type="number" min="1" required></div><div><label>تصویر (موبائل گیلری)</label><input id="pfile" type="file" accept="image/*"></div></div><label>تفصیل</label><textarea id="pdesc"></textarea><label class="check"><input id="pactive" type="checkbox" checked> ویب سائٹ پر دکھائیں</label><button>محفوظ کریں</button><button type="button" class="alt" onclick="resetP()">نیا فارم</button></form><p class="note">تصویر اپلوڈ کے لیے Storage bucket product-images میں مالک کی upload policy ضروری ہے۔</p><div id="productsList"></div></section>
+<section id="services" class="hidden"><h3>سروس شامل / تبدیل کریں</h3><form id="serviceForm"><input id="sid" type="hidden"><div class="formgrid"><div><label>سروس کا نام</label><input id="sname" required></div><div><label>قیمت (PKR)</label><input id="sprice" type="number" min="1" required></div></div><label>تفصیل</label><textarea id="sdesc"></textarea><label class="check"><input id="sactive" type="checkbox" checked> ویب سائٹ پر دکھائیں</label><button>محفوظ کریں</button><button type="button" class="alt" onclick="resetS()">نیا فارم</button></form><div id="servicesList"></div></section></section></main>
 <script>
-const SUPABASE_URL='https://eoetqloahvvejkvuwptm.supabase.co';
-const SUPABASE_PUBLISHABLE_KEY='sb_publishable_SuVuX66lkeu5up69XCffpw_Y-OMb7Tn';
-const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
-const $=id=>document.getElementById(id);
-function message(id,text){$(id).textContent=text;$(id).classList.remove('hidden')}
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-async function loadAppointments(){
- $('appointments').innerHTML='<p class="note">Loading…</p>';
- const {data,error}=await db.from('appointments').select('*').order('created_at',{ascending:false});
- if(error){$('appointments').innerHTML='';message('dashMsg','درخواستیں نہیں کھل سکیں۔ مالک کی اجازت (RLS) ابھی Supabase میں configure کرنا باقی ہو سکتی ہے۔');return}
- $('dashMsg').classList.add('hidden');
- if(!data.length){$('appointments').innerHTML='<p class="note">ابھی کوئی اپائنٹمنٹ نہیں۔</p>';return}
- $('appointments').innerHTML=data.map(a=>`<article class="item">
- <div class="bar"><strong>${esc(a.customer_name)}</strong><span class="pill">${esc(a.status||'pending')}</span></div>
- <div class="meta">فون: ${esc(a.phone)}<br>سروس: ${esc(a.service_name)}<br>تاریخ: ${esc(a.preferred_date)} · وقت: ${esc(a.preferred_time)}<br>تفصیل: ${esc(a.details||'—')}</div>
- <div class="row"><select aria-label="Appointment status" id="status-${Number(a.id)}">
- <option value="pending" ${a.status==='pending'?'selected':''}>Pending</option>
- <option value="accepted" ${a.status==='accepted'?'selected':''}>Accepted</option>
- <option value="rejected" ${a.status==='rejected'?'selected':''}>Rejected</option>
- </select><button onclick="saveStatus(${Number(a.id)})">Save status</button></div></article>`).join('');
-}
-window.saveStatus=async id=>{
- const status=$('status-'+id).value;
- const {error}=await db.from('appointments').update({status}).eq('id',id);
- if(error){message('dashMsg','حالت محفوظ نہیں ہوئی۔ Supabase میں مالک کی UPDATE اجازت (RLS) ابھی درکار ہے۔');return}
- message('dashMsg','Appointment status updated.');loadAppointments();
-};
-$('loginBtn').onclick=async()=>{
- const email=$('email').value.trim(),password=$('password').value;
- if(!email||!password){message('loginMsg','براہِ کرم Gmail اور پاس ورڈ درج کریں۔');return}
- $('loginBtn').disabled=true;
- const {error}=await db.auth.signInWithPassword({email,password});
- $('loginBtn').disabled=false;
- if(error){message('loginMsg','لاگ اِن نہیں ہوا۔ اکاؤنٹ/پاس ورڈ یا Email confirmation چیک کریں۔');return}
- $('loginPanel').classList.add('hidden');$('dashboard').classList.remove('hidden');loadAppointments();
-};
-$('refreshBtn').onclick=loadAppointments;
-$('logoutBtn').onclick=async()=>{await db.auth.signOut();$('dashboard').classList.add('hidden');$('loginPanel').classList.remove('hidden')};
-db.auth.getSession().then(({data})=>{if(data.session){$('loginPanel').classList.add('hidden');$('dashboard').classList.remove('hidden');loadAppointments()}});
+const URL='https://eoetqloahvvejkvuwptm.supabase.co',KEY='sb_publishable_SuVuX66lkeu5up69XCffpw_Y-OMb7Tn',db=supabase.createClient(URL,KEY),$=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));function say(t){$('msg').textContent=t;$('msg').classList.remove('hidden')}function clear(){ $('msg').classList.add('hidden') }
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{['appointments','products','services'].forEach(x=>$(x).classList.toggle('hidden',x!==b.dataset.tab));document.querySelectorAll('[data-tab]').forEach(z=>z.classList.toggle('alt',z!==b))});
+async function loadA(){const {data,error}=await db.from('appointments').select('*').order('created_at',{ascending:false});if(error){$('appointmentsList').textContent='اپائنٹمنٹس نہیں کھل سکیں؛ RLS اجازت چیک کریں۔';return} $('appointmentsList').innerHTML=data.length?data.map(a=>`<article class="item"><b>${esc(a.customer_name)}</b><p class="meta">فون: ${esc(a.phone)} · سروس: ${esc(a.service_name)}<br>تاریخ: ${esc(a.preferred_date)} · وقت: ${esc(a.preferred_time)}<br>${esc(a.details||'')}</p><select id="a${a.id}"><option value="pending" ${a.status==='pending'?'selected':''}>زیر التوا</option><option value="accepted" ${a.status==='accepted'?'selected':''}>منظور</option><option value="rejected" ${a.status==='rejected'?'selected':''}>مسترد</option></select><button onclick="saveA(${Number(a.id)})">حالت محفوظ کریں</button></article>`).join(''):'ابھی کوئی اپائنٹمنٹ نہیں۔'}window.saveA=async id=>{let {error}=await db.from('appointments').update({status:$('a'+id).value}).eq('id',id);if(error)say('حالت محفوظ نہیں ہوئی؛ appointments UPDATE RLS چیک کریں۔');else{say('اپائنٹمنٹ اپ ڈیٹ ہو گئی۔');loadA()}};
+async function loadP(){let {data,error}=await db.from('products').select('*').order('created_at',{ascending:false});if(error){$('productsList').textContent='پروڈکٹس نہیں کھلیں؛ ٹیبل کالم یا RLS چیک کریں۔';return}$('productsList').innerHTML=data.length?'<div class="grid">'+data.map(p=>`<article class="item">${p.image_url?`<img src="${esc(p.image_url)}">`:''}<b>${esc(p.name)}</b><p class="meta">${esc(p.price)} PKR · ${esc(p.description||'')}<br>${p.active?'فعال':'غیر فعال'}</p><button class="alt" onclick="editP('${esc(p.id)}')">تبدیل</button><button class="del" onclick="delP('${esc(p.id)}')">حذف</button></article>`).join('')+'</div>':'ابھی کوئی پروڈکٹ نہیں۔'}window.editP=async id=>{let {data,error}=await db.from('products').select('*').eq('id',id).single();if(error)return say('پروڈکٹ نہیں کھلی۔');$('pid').value=data.id;$('pname').value=data.name||'';$('pprice').value=data.price||'';$('pdesc').value=data.description||'';$('pactive').checked=data.active!==false;$('pfile').value='';window.oldImage=data.image_url||'';window.scrollTo(0,0)};window.resetP=()=>{$('productForm').reset();$('pid').value='';window.oldImage='';$('pactive').checked=true};window.delP=async id=>{if(!confirm('پروڈکٹ حذف کریں؟'))return;let {error}=await db.from('products').delete().eq('id',id);if(error)say('حذف نہیں ہوئی؛ مالک کی DELETE اجازت چیک کریں۔');else{say('پروڈکٹ حذف ہو گئی۔');loadP()}};
+$('productForm').onsubmit=async e=>{e.preventDefault();let user=(await db.auth.getUser()).data.user;if(!user)return say('دوبارہ لاگ اِن کریں۔');let image=window.oldImage||null,file=$('pfile').files[0];if(file){let ext=(file.name.split('.').pop()||'jpg').replace(/[^a-z0-9]/gi,'');let path=user.id+'/'+Date.now()+'.'+ext;let up=await db.storage.from('product-images').upload(path,file,{upsert:true,contentType:file.type});if(up.error)return say('تصویر اپلوڈ نہیں ہوئی؛ product-images Storage INSERT policy درکار ہے۔');image=db.storage.from('product-images').getPublicUrl(path).data.publicUrl}let row={owner_id:user.id,name:$('pname').value.trim(),price:Number($('pprice').value),description:$('pdesc').value.trim(),image_url:image,active:$('pactive').checked};let id=$('pid').value,q=id?db.from('products').update(row).eq('id',id):db.from('products').insert(row),{error}=await q;if(error)return say('پروڈکٹ محفوظ نہیں ہوئی؛ products schema/RLS چیک کریں۔');resetP();say('پروڈکٹ محفوظ ہو گئی۔');loadP()};
+async function loadS(){let {data,error}=await db.from('services').select('*').order('created_at',{ascending:false});if(error){$('servicesList').textContent='سروسز نہیں کھلیں؛ RLS اجازت چیک کریں۔';return}$('servicesList').innerHTML=data.length?'<div class="grid">'+data.map(s=>`<article class="item"><b>${esc(s.name)}</b><p class="meta">${esc(s.price)} PKR · ${esc(s.description||'')}<br>${s.active?'فعال':'غیر فعال'}</p><button class="alt" onclick="editS('${esc(s.id)}')">تبدیل</button><button class="del" onclick="delS('${esc(s.id)}')">حذف</button></article>`).join('')+'</div>':'ابھی کوئی سروس نہیں۔'}window.editS=async id=>{let {data,error}=await db.from('services').select('*').eq('id',id).single();if(error)return say('سروس نہیں کھلی۔');$('sid').value=data.id;$('sname').value=data.name||'';$('sprice').value=data.price||'';$('sdesc').value=data.description||'';$('sactive').checked=data.active!==false;window.scrollTo(0,0)};window.resetS=()=>{$('serviceForm').reset();$('sid').value='';$('sactive').checked=true};window.delS=async id=>{if(!confirm('سروس حذف کریں؟'))return;let {error}=await db.from('services').delete().eq('id',id);if(error)say('حذف نہیں ہوئی؛ services DELETE RLS چیک کریں۔');else{say('سروس حذف ہو گئی۔');loadS()}};$('serviceForm').onsubmit=async e=>{e.preventDefault();let user=(await db.auth.getUser()).data.user;if(!user)return say('دوبارہ لاگ اِن کریں۔');let row={owner_id:user.id,name:$('sname').value.trim(),price:Number($('sprice').value),description:$('sdesc').value.trim(),active:$('sactive').checked},id=$('sid').value,q=id?db.from('services').update(row).eq('id',id):db.from('services').insert(row),{error}=await q;if(error)return say('سروس محفوظ نہیں ہوئی؛ services RLS/کالم چیک کریں۔');resetS();say('سروس محفوظ ہو گئی۔');loadS()};
+async function loadAll(){clear();await Promise.all([loadA(),loadP(),loadS()])}$('loginBtn').onclick=async()=>{let email=$('email').value.trim(),password=$('password').value;if(!email||!password){$('loginMsg').textContent='Gmail اور پاس ورڈ درج کریں۔';$('loginMsg').classList.remove('hidden');return}$('loginBtn').disabled=true;let {error}=await db.auth.signInWithPassword({email,password});$('loginBtn').disabled=false;if(error){$('loginMsg').textContent='لاگ اِن نہیں ہوا؛ Gmail، پاس ورڈ یا Email confirmation چیک کریں۔';$('loginMsg').classList.remove('hidden');return}$('login').classList.add('hidden');$('dash').classList.remove('hidden');loadAll()};$('refresh').onclick=loadAll;$('logout').onclick=async()=>{await db.auth.signOut();$('dash').classList.add('hidden');$('login').classList.remove('hidden')};db.auth.getSession().then(({data})=>{if(data.session){$('login').classList.add('hidden');$('dash').classList.remove('hidden');loadAll()}});
 </script></body></html>
