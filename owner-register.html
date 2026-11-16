@@ -1,43 +1,56 @@
 <!doctype html>
-<html lang="en">
+<html lang="ur" dir="rtl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kiswa Owner Registration</title>
+<meta name="theme-color" content="#78304f">
+<title>مالک کی پہلی رجسٹریشن | Kiswa Beauty Parlor</title>
 <style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#fff5f8;font-family:Arial,sans-serif;color:#402536;padding:18px}
-main{width:min(100%,430px);background:white;border:1px solid #f1c9d8;border-radius:20px;padding:26px;box-shadow:0 12px 35px #7b36551a}
-h1{margin:0 0 8px;color:#a13d68}p{line-height:1.5;color:#684b59}label{display:block;margin:16px 0 6px;font-weight:600}
-input{width:100%;padding:13px;border:1px solid #d9b8c6;border-radius:10px;font-size:16px}
-button{width:100%;padding:14px;margin-top:20px;border:0;border-radius:10px;background:#a13d68;color:white;font-size:16px;font-weight:bold}
-#msg{margin-top:14px;overflow-wrap:anywhere}
-small{color:#765c68}
+:root{--wine:#78304f;--rose:#a13d68;--pink:#fff5f8;--line:#efd8e1;--ink:#402536}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--pink);font-family:system-ui,Arial,sans-serif;color:var(--ink);padding:18px}
+main{width:min(100%,460px);background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 12px 35px #7b36551a}
+header{text-align:center;background:var(--wine);color:#fff;border-radius:13px;padding:17px;margin:-5px -5px 18px}
+h1{font-size:21px;margin:0 0 5px}header p{margin:0;color:#f8e9ee;font-size:12px}
+h2{font-size:19px;color:var(--wine);margin:0 0 8px}
+p{line-height:1.7;color:#684b59;font-size:14px}
+label{display:block;margin:15px 0 6px;font-weight:650;font-size:14px}
+input{width:100%;padding:13px;border:1px solid #d9b8c6;border-radius:10px;font-size:16px;background:#fff}
+button{width:100%;padding:14px;margin-top:20px;border:0;border-radius:22px;background:var(--wine);color:white;font-size:16px;font-weight:bold}
+button:disabled{opacity:.6}
+#msg{margin-top:14px;padding:10px;border-radius:9px;overflow-wrap:anywhere;font-size:14px}
+a{color:var(--rose);font-weight:700}
+.help{font-size:12px;color:#765c68}
 </style></head>
 <body><main>
-<h1>Kiswa Beauty Parlor</h1><h2>Owner registration</h2>
-<p>This is a one-time private setup. Only the person who has the private activation code should use this page.</p>
+<header><h1>Kiswa Beauty Parlor</h1><p>مالک کا محفوظ انتظامی اکاؤنٹ</p></header>
+<h2>مالک کی پہلی رجسٹریشن</h2>
+<p>یہ صفحہ صرف ایک مرتبہ مالک کا اکاؤنٹ بنانے کے لیے ہے۔ رجسٹریشن کے لیے مالک کا اپنا Gmail، اپنا بنایا ہوا مضبوط پاس ورڈ اور نجی ایکٹیویشن کوڈ درکار ہے۔</p>
 <form id="f">
-<label>Email address</label><input id="email" type="email" autocomplete="email" required>
-<label>Create password (at least 10 characters)</label><input id="password" type="password" minlength="10" autocomplete="new-password" required>
-<label>One-time activation code</label><input id="code" type="text" autocomplete="off" required>
-<button id="submit" type="submit">Create owner account</button>
-</form><div id="msg" role="status"></div>
-<p><small>After successful registration, open <a href="./admin.html">Owner login</a>.</small></p>
-</main>
+<label for="email">مالک کا Gmail / Email</label><input id="email" type="email" autocomplete="email" required>
+<label for="password">اپنا پاس ورڈ بنائیں (کم از کم 10 حروف)</label><input id="password" type="password" minlength="10" autocomplete="new-password" required>
+<label for="code">نجی ایکٹیویشن کوڈ</label><input id="code" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+<button id="submit" type="submit">مالک کا اکاؤنٹ بنائیں</button>
+</form><div id="msg" role="status" aria-live="polite"></div>
+<p class="help">اکاؤنٹ کامیابی سے بننے کے بعد مالک لاگ اِن صفحے پر جا کر اپنے Gmail اور پاس ورڈ سے داخل ہو سکتا ہے۔ ایکٹیویشن کوڈ کسی دوسرے شخص کے ساتھ شیئر نہ کریں۔</p>
+<p><a href="./admin.html">واپس مالک لاگ اِن پر جائیں</a></p>
 <script>
 const SUPABASE_URL="https://eoetqloahvvejkvuwptm.supabase.co";
 const SUPABASE_ANON_KEY="sb_publishable_SuVuX66lkeu5up69XCffpw_Y-OMb7Tn";
 document.getElementById("f").addEventListener("submit",async e=>{
- e.preventDefault();const b=document.getElementById("submit"),m=document.getElementById("msg");
- b.disabled=true;b.textContent="Please wait…";m.textContent="";
+ e.preventDefault();
+ const b=document.getElementById("submit"),m=document.getElementById("msg");
+ b.disabled=true;b.textContent="اکاؤنٹ بنایا جا رہا ہے…";m.textContent="";m.style.background="transparent";
  try{
-  const r=await fetch(SUPABASE_URL+"/functions/v1/owner-register-v2",{method:"POST",
-   headers:{"Content-Type":"application/json","apikey":SUPABASE_ANON_KEY},
-   body:JSON.stringify({email:document.getElementById("email").value,
-    password:document.getElementById("password").value,
-    activationCode:document.getElementById("code").value})});
-  const d=await r.json();if(!r.ok)throw new Error(d.error||"Registration failed");
-  m.textContent="Account created. Now open Owner login and sign in.";
+  const email=document.getElementById("email").value.trim();
+  const password=document.getElementById("password").value;
+  const activationCode=document.getElementById("code").value.trim();
+  if(password.length<10)throw new Error("پاس ورڈ کم از کم 10 حروف کا ہونا چاہیے۔");
+  const r=await fetch(SUPABASE_URL+"/functions/v1/owner-register-v2",{method:"POST",headers:{"Content-Type":"application/json","apikey":SUPABASE_ANON_KEY},body:JSON.stringify({email,password,activationCode})});
+  const d=await r.json().catch(()=>({}));
+  if(!r.ok)throw new Error(d.error||"رجسٹریشن مکمل نہیں ہوئی۔");
+  m.textContent="مالک کا اکاؤنٹ بن گیا ہے۔ اب مالک لاگ اِن صفحے پر جا کر داخل ہو سکتا ہے۔";
+  m.style.background="#eaf7ee";
   document.getElementById("f").reset();
- }catch(err){m.textContent=err.message;}finally{b.disabled=false;b.textContent="Create owner account";}
+ }catch(err){m.textContent=err.message||"رجسٹریشن مکمل نہیں ہوئی۔";m.style.background="#fff0f0";}
+ finally{b.disabled=false;b.textContent="مالک کا اکاؤنٹ بنائیں";}
 });
-</script></body></html>
+</script></main></body></html>
